@@ -8,16 +8,9 @@ public class Customer {
 	public String getName() {
 		return name;
 	}
-	public void setName(String name) {
-		this.name = name;
-	}
 	public String getRoute() {
 		return route;
 	}
-	public void setRoute(String route) {
-		this.route = route;
-	}
-	
 	//customer constructor
 	
 	public Customer(String name, String route) {

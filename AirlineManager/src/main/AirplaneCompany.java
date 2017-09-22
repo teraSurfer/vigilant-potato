@@ -9,14 +9,14 @@ public class AirplaneCompany {
 		if(airplanes.containsKey(route)){
 		ArrayList<Customer> al = airplanes.get(route);
 		al.add(c);
-		}else throw new Exception("No Such Route Exists...");
+		}else throw new RouteException("No Such Route Exists...");
 	}
 	
 	public void assignPlane(String route)throws Exception{
 		if(!airplanes.containsKey(route)){
 			ArrayList<Customer> al = new ArrayList<>();
 			airplanes.put(route, al);
-		}else throw new Exception("Route already exists...");
+		}else throw new RouteException("Route already exists...");
 	}
 	
 	public String startPlane(String route) throws Exception{
@@ -24,10 +24,12 @@ public class AirplaneCompany {
 			String msg = "Starting flight for route: ";
 			return msg+route;
 		}
-		else throw new Exception("No such route exists...");
+		else throw new RouteException("No such route exists...");
 	}
 	
-	public AirplaneCompany(){
+	public AirplaneCompany(Customer c, String route) throws RouteException{
 		airplanes = new HashMap<>();
+		sellTicket(c, route);
+		
 	}
 }
